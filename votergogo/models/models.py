@@ -109,7 +109,6 @@ class Contact(Base):
     contact_id = Column(Integer, primary_key=True)
     name = Column(Unicode)
     label = Column(Boolean)
-    website = Column(Unicode)
 
 
 class PhoneNumbers(Base):
