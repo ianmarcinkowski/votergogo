@@ -78,6 +78,7 @@ class District(Base):
     __tablename__ = 'districts'
     district_id = Column(Integer, primary_key=True)
     name = Column(Text)
+    external_district_id = Column(Unicode)
     electoral_system_id = Column(ForeignKey(ElectoralSystem.electoral_system_id))
 
     electoral_system = relationship(ElectoralSystem, backref='districts')
