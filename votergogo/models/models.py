@@ -68,10 +68,19 @@ class PollingStation(Base):
     address_id = Column(Integer)
 
 
+class ElectoralSystem(Base):
+    __tablename__ = 'electoral_systems'
+    electoral_system_id = Column(Integer, primary_key=True)
+    name = Column(Unicode, nullable=False)
+
+
 class District(Base):
     __tablename__ = 'districts'
     district_id = Column(Integer, primary_key=True)
     name = Column(Text)
+    electoral_system_id = Column(ForeignKey(ElectoralSystem.electoral_system_id))
+
+    electoral_system = relationship(ElectoralSystem, backref='districts')
 
 
 class Contest(Base):
